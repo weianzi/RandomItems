@@ -43,14 +43,26 @@ int main(int argc, const char * argv[]) {
         //NSLog(@"%@, %@, %@, %d", item.itemName, item.dateCreated, item.serialNumber, item.valueInDollars);
         //NSLog(@"%@", item);
         
-        for (int i = 0; i < 10; i++) {
-            BNRItem *item = [BNRItem randomItem];
-            [items addObject:item];
-        }
+//        for (int i = 0; i < 10; i++) {
+//            BNRItem *item = [BNRItem randomItem];
+//            [items addObject:item];
+//        }
+        
+        BNRItem *backpack = [[BNRItem alloc] initWithItemName:@"backpack"];
+        [items addObject:backpack];
+        BNRItem *calculator = [[BNRItem alloc] initWithItemName:@"calculator"];
+        [items addObject:calculator];
+        
+        backpack.containedItem = calculator;
+        
+        backpack = nil;
+        calculator = nil;
         
         for (BNRItem *item in items) {
             NSLog(@"%@", item);
         }
+        
+        NSLog(@"Setting items to nil...");
         
         items = nil;
     

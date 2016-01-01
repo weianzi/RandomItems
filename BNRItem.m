@@ -17,8 +17,8 @@
     NSInteger adjectiveIndex = arc4random() % [randomAdjectiveList count];
     NSInteger nounIndex = arc4random() % [randomNounList count];
     NSString *randomName = [NSString stringWithFormat:@"%@ %@",
-                            [randomAdjectiveList objectAtIndex:adjectiveIndex],
-                            [randomNounList objectAtIndex:nounIndex]];
+                            randomAdjectiveList[adjectiveIndex],
+                            randomNounList[nounIndex]];
     int randomValue = arc4random() % 100;
     NSString *randomSerialNumber = [NSString stringWithFormat:@"%c%c%c%c%c",
                                     '0' + arc4random() % 10,
@@ -66,43 +66,68 @@
                              self.valueInDollars,
                              self.dateCreated];
     return descriptionString;
-    
-    
 }
 
-- (void)setItemName:(NSString *)str
+- (void)dealloc
 {
-    _itemName = str;
+    NSLog(@"Destoryed: %@", self);
 }
 
-- (NSString *)itemName
+- (void)setContainedItem:(BNRItem *)containedItem
 {
-    return _itemName;
+    _containedItem = containedItem;
+    self.containedItem.container = self;
 }
-
-- (void)setSerialNumber:(NSString *)str
-{
-    _serialNumber = str;
-}
-
-- (NSString *)serialNumber
-{
-    return _serialNumber;
-}
-
-- (void)setValueInDollars:(int)v
-{
-    _valueInDollars = v;
-}
-
-- (int)valueInDollars
-{
-    return _valueInDollars;
-}
-
-- (NSDate *)dateCreated
-{
-    return _dateCreated;
-}
+//
+//- (BNRItem *)containedItem
+//{
+//    return _containedItem;
+//}
+//
+//-(void)setContainer:(BNRItem *)item
+//{
+//    _container = item;
+//}
+//
+//-(BNRItem *)container
+//{
+//    return _container;
+//}
+//
+//
+//- (void)setItemName:(NSString *)str
+//{
+//    _itemName = str;
+//}
+//
+//- (NSString *)itemName
+//{
+//    return _itemName;
+//}
+//
+//- (void)setSerialNumber:(NSString *)str
+//{
+//    _serialNumber = str;
+//}
+//
+//- (NSString *)serialNumber
+//{
+//    return _serialNumber;
+//}
+//
+//- (void)setValueInDollars:(int)v
+//{
+//    _valueInDollars = v;
+//}
+//
+//- (int)valueInDollars
+//{
+//    return _valueInDollars;
+//}
+//
+//- (NSDate *)dateCreated
+//{
+//    return _dateCreated;
+//}
 
 @end
