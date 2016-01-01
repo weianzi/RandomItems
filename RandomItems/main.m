@@ -12,10 +12,10 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         NSMutableArray *items = [[NSMutableArray alloc] init];
-        [items addObject:@"one"];
-        [items addObject:@"two"];
-        [items addObject:@"three"];
-        [items insertObject:@"zero" atIndex:0];
+        //[items addObject:@"one"];
+        //[items addObject:@"two"];
+        //[items addObject:@"three"];
+        //[items insertObject:@"zero" atIndex:0];
         
 //        for (int i=0; i<[items count]; i++) {
 //            NSString *item = [items objectAtIndex:i];
@@ -27,7 +27,7 @@ int main(int argc, const char * argv[]) {
 //        }
         
         
-        BNRItem *item = [[BNRItem alloc] init];
+        //BNRItem *item = [[BNRItem alloc] init];
         
 //        [item setItemName:@"red sofa"];
 //        [item setSerialNumber:@"a1b2c"];
@@ -36,12 +36,21 @@ int main(int argc, const char * argv[]) {
 //        NSLog(@"%@, %@, %@, %d", [item itemName], [item dateCreated], [item serialNumber], [item valueInDollars]);
 //        
         
-        item.itemName = @"red sofa";
-        item.serialNumber = @"a1b2c";
-        item.valueInDollars = 100;
+        //item.itemName = @"red sofa";
+        //item.serialNumber = @"a1b2c";
+        //item.valueInDollars = 100;
         
-        NSLog(@"%@, %@, %@, %d", item.itemName, item.dateCreated, item.serialNumber, item.valueInDollars);
-
+        //NSLog(@"%@, %@, %@, %d", item.itemName, item.dateCreated, item.serialNumber, item.valueInDollars);
+        //NSLog(@"%@", item);
+        
+        for (int i = 0; i < 10; i++) {
+            BNRItem *item = [BNRItem randomItem];
+            [items addObject:item];
+        }
+        
+        for (BNRItem *item in items) {
+            NSLog(@"%@", item);
+        }
         
         items = nil;
     
